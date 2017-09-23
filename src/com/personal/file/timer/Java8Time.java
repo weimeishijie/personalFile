@@ -2,6 +2,8 @@ package com.personal.file.timer;
 
 import java.time.*;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAccessor;
+import java.util.Date;
 
 /**
  * 核心思路：新的API由三个核心思路组成
@@ -19,7 +21,7 @@ import java.time.temporal.ChronoUnit;
 public class Java8Time {
 
     /**
-     * LocalDate类和LocalTime类
+     * LocalDate类和LocalTime类（领域驱动设计）
      * LocalDate类和LocalTime类很有可能是你使用新API时第一个遇见的类。他们本地化的原因是他们
      * 能够根据系统环境来表示时间和日期，就像放在桌上的日历或者挂在墙上的时钟。还有一个混合类
      * 是LocalDate和LocalTime组合而成的，叫LocalDateTime.
@@ -34,10 +36,10 @@ public class Java8Time {
      * parse方法来有一个String参数构建它：例如：
      */
     private static void localDateTimeDemo(){
-        // LocalDateTime.now() : 创建一个当前的时间戳
+        // LocalDateTime.now() : 创建一个当前的时间戳（类名直接创建时间）
         LocalDateTime timePoint = LocalDateTime.now();//The current date and time
         System.out.println(timePoint);
-        // LocalDate.of() 创建一个时间（年月日）有很多重载
+        // LocalDate.of() 创建一个时间（年月日）有很多重载（某些类型自身的字段构建时间）
         LocalDate localDate = LocalDate.of(2012, Month.DECEMBER, 12);// from values
         System.out.println(localDate);
         // LocalDate.ofEpochDay()此方法代表将传进来的数值（单位：天）加到1970-01-01上
@@ -49,6 +51,11 @@ public class Java8Time {
         // LocalTime.parse() : 将一个字符串（时间：时分秒）解析成localTime对象
         LocalTime localTime1 = LocalTime.parse("10:15:30");// From a String
         System.out.println(localTime1);
+        LocalDate localDate2 = LocalDate.parse("2012-12-25");
+        System.out.println(localDate2);
+        // from接受一个其他类型行的时间，转换成当前时间对象
+        LocalDate localDate3 = LocalDate.from(timePoint);
+        System.out.println(localDate3);
     }
 
 //    public static void main(String[] args){
@@ -68,7 +75,7 @@ public class Java8Time {
         // LocalDateTime.getMonth() 得到时间戳中的月份
         Month month = timePoint.getMonth();
         System.out.println(month);
-        // LocalDateTime.getDayOfMonth() 得到时间戳中的天数
+        // LocalDateTime.getDayOfMonth() 得到时间戳的月中天数（年中天数，周中天数）
         int day = timePoint.getDayOfMonth();
         System.out.println(day);
         // LocalDateTime.getSecond() 得到时间戳的秒数
@@ -81,15 +88,14 @@ public class Java8Time {
 //    }
 
     /**
-     * 也可以对对象值进行运算操作。
-     * 因为新的API中所有的类型都是不可变的，他们都是调用了with方法
-     * 并返回一个新对象，相当于使用了setter赋值。对于每一个字段都有提供了基本的运算方法。
+     * 也可以对 对象值进行运算操作。
+     * 因为新的API中所有的类型都是不可变的，他们都是调用了with方法并返回一个新对象，
+     * 相当于使用了setter赋值。对于每一个字段都有提供了基本的运算方法。
      */
     private static void localDateTimeDemo1(){
         // LocalDateTime.now() : 创建一个当前的时间戳
         LocalDateTime timePoint = LocalDateTime.now();//The current date and time
         System.out.println(timePoint);
-        // LocalDateTime.withDayOfMonth().withYear() 方法将产生的值对应的替换
         // set the value, returning a new object
         LocalDateTime thePast = timePoint.withDayOfMonth(10).withYear(2010);
         System.out.println(thePast);
@@ -101,7 +107,7 @@ public class Java8Time {
          */
         LocalDateTime yetAnother = thePast.plusWeeks(3).plus(3, ChronoUnit.WEEKS);
         System.out.println(yetAnother);
-
+        // with方法在时间中相当于setter
     }
 
 //    public static void main(String[] args) {
@@ -119,18 +125,34 @@ public class Java8Time {
      * LocalDateTime bar = timePoint.with(previousOrSame(ChronoUnit.WEDNESDAY));
      * timePoint.with(LocalTime.now());
      */
+    private static void timeAndWith(){
+        // LocalDateTime.now() : 创建一个当前的时间戳
+        LocalDateTime timePoint = LocalDateTime.now();//The current date and time
+        System.out.println(timePoint);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(timePoint.with(LocalTime.now()));
+    }
+
+//    public static void main(String[] args) {
+//        timeAndWith();
+//    }
 
     /**
      * 截取 ：
      * 新的API提供了表示不同精度的时间点类型来表示日期、时刻、时期+时刻。
-     * API提供的truncatedTo方法使用于这种场景：他允许你从一个字段中截取出一个值
+     * API提供的truncatedTo(截取)方法使用于这种场景：他允许你从一个字段中截取出一个值
      * 例如：
      */
     private static void truncatedToDemo(){
-        LocalTime time = LocalTime.now();
+        LocalDateTime time = LocalDateTime.now();
         System.out.println(time);
-        // localTime.truncatedTo(ChronoUnit.SECONDS) 切除末尾的位数
-        LocalTime truncatedTime = time.truncatedTo(ChronoUnit.SECONDS);
+        //可以截取到值 DAYS(天)，HALF_DAYS(一天的一半)，HOURS(时)，MINUTES(分)，SECONDS(秒)
+        // localTime.truncatedTo(ChronoUnit.SECONDS) 切除末尾的位数,
+        LocalDateTime truncatedTime = time.truncatedTo(ChronoUnit.SECONDS);
         System.out.println(truncatedTime);
     }
 
@@ -160,9 +182,9 @@ public class Java8Time {
         System.out.println(id);
         ZonedDateTime zoned = ZonedDateTime.of(dateTime, id);
         System.out.println(zoned);
-//        assertEquals(id, ZonedId.from(zoned));
-//
-//        ZoneOffset offset = ZoneOffset.of("+2:00");
+        assert id.equals(ZoneId.from(zoned));
+
+//        ZoneOffset offset = ZoneOffset.of("+0:00");
 //        System.out.println(offset);
     }
 
@@ -227,13 +249,13 @@ public class Java8Time {
 
     /**
      * Chronology系列类
-     * 由于我们需要支持无ISO日期年表表示的环境，JavaSE8首次引入了Chronology类，这种环境下使用。
+     * 由于我们需要支持无ISO日期年表 表示的环境，JavaSE8首次引入了Chronology类，这种环境下使用。
      * 他们也实现了核心的时间日期接口
      * Chronology ：
      * - ChronoLocalDate
      * - ChronoLocalDateTime
      * - ChronoZonedDateTime
-     * 这些类应该使用在具体高度国际化的应用中需要使用本地化的时间体系时，没有这种需求的话最好不要
+     * 这些类应该使用在具体高度国际化的应用中 需要使用本地化的时间体系时，没有这种需求的话最好不要
      * 使用他们。有一些时间体系中甚至没有一个月，一个星期的概念，我们只能通过更加通用抽象的字段进
      * 行运算。
      *
@@ -248,7 +270,7 @@ public class Java8Time {
      *      ANSI SQL                --           Java SE 8
      *      Date                    --           LocalDate
      *      TIME                    --           LocalTime
-     *    TIMESTAMP                 --           TIMESTAMP
+     *    TIMESTAMP                 --           TIMESTAMP(时间戳)
      * TIMESTAMP WITH TIMEZONE      --           OffsetDateTime
      *
      * 总结 ：
