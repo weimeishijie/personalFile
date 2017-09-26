@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e78f477c-db31-4ea3-a4f0-9486f90561ee" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/personal/file/optional/OptionalDemo.java" afterPath="$PROJECT_DIR$/src/com/personal/file/optional/OptionalDemo.java" />
     </list>
     <ignored path="personalFile.iws" />
@@ -31,7 +32,6 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="251" column="43" selection-start-line="251" selection-start-column="43" selection-end-line="251" selection-end-column="43" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#localDateTimeDemo#0;class#Java8Time#0" expanded="false" />
                 <element signature="e#2396#2441#0" expanded="false" />
                 <element signature="e#3303#3348#0" expanded="false" />
@@ -56,19 +56,37 @@
       <file leaf-file-name="OptionalDemo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/personal/file/optional/OptionalDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27094474">
-              <caret line="114" column="15" selection-start-line="114" selection-start-column="14" selection-end-line="114" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.537037">
+              <caret line="124" column="13" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#ofDemo#0;class#OptionalDemo#0" expanded="false" />
                 <element signature="e#700#746#0" expanded="false" />
                 <element signature="method#ofNullableDemo#0;class#OptionalDemo#0" expanded="false" />
                 <element signature="e#1106#1152#0" expanded="false" />
                 <element signature="method#isPresentDemo#0;class#OptionalDemo#0" expanded="false" />
-                <element signature="e#1443#1489#0" expanded="false" />
+                <element signature="e#1454#1500#0" expanded="false" />
                 <element signature="method#getDemo#0;class#OptionalDemo#0" expanded="false" />
-                <element signature="e#1957#2003#0" expanded="false" />
-                <element signature="e#2560#2606#0" expanded="false" />
-                <element signature="e#3183#3229#0" expanded="false" />
+                <element signature="e#1968#2014#0" expanded="false" />
+                <element signature="method#ifPresentDemo#0;class#OptionalDemo#0" expanded="false" />
+                <element signature="e#2764#2810#0" expanded="false" />
+                <element signature="e#3560#3606#0" expanded="false" />
+                <element signature="method#orElseGetDemo#0;class#OptionalDemo#0" expanded="false" />
+                <element signature="e#4409#4455#0" expanded="false" />
+                <element signature="method#orElseThrowDemo#0;class#OptionalDemo#0" expanded="false" />
+                <element signature="class#ValueAbsentException#0;class#OptionalDemo#0" expanded="false" />
+                <element signature="e#5109#5110#0" expanded="true" />
+                <element signature="e#5140#5141#0" expanded="true" />
+                <element signature="e#5190#5191#0" expanded="true" />
+                <element signature="e#5224#5225#0" expanded="true" />
+                <element signature="e#5279#5280#0" expanded="true" />
+                <element signature="e#5353#5354#0" expanded="true" />
+                <element signature="method#mapDemo#0;class#OptionalDemo#0" expanded="false" />
+                <element signature="method#flatMapDemo#0;class#OptionalDemo#0" expanded="false" />
+                <element signature="e#7708#7754#0" expanded="false" />
+                <element signature="method#filterDemo#0;class#OptionalDemo#0" expanded="false" />
+                <element signature="e#8654#8700#0" expanded="false" />
+                <marker date="1506414639985" expanded="false" signature="6880:6940" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -152,9 +170,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="999" />
-    <option name="y" value="4" />
-    <option name="width" value="945" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
     <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -267,7 +285,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nuoli2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -840,15 +858,17 @@
       <workItem from="1506042717793" duration="17237000" />
       <workItem from="1506075761029" duration="338000" />
       <workItem from="1506128264521" duration="12370000" />
-      <workItem from="1506146060047" duration="13667000" />
+      <workItem from="1506146060047" duration="13791000" />
+      <workItem from="1506300522680" duration="4383000" />
+      <workItem from="1506387025899" duration="11510000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129092000" />
+    <option name="totallyTimeSpent" value="145109000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="999" y="4" width="945" height="1048" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -859,10 +879,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43099272" sideWeight="0.51059" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20621932" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28208232" sideWeight="0.48940998" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26954493" sideWeight="0.48940998" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7266776" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44114286" sideWeight="0.57461405" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20770878" sideWeight="0.57461405" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19098713" sideWeight="0.30464715" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.06866953" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -947,20 +967,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/personal/file/stream/StreamDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/thinking/in/java/Eexception/DynamicFields.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/personal/file/timer/Calculagraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1216,13 +1222,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/Java/jdk1.8.0_144/src.zip!/java/util/function/Supplier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6481481">
-          <caret line="47" column="2" selection-start-line="47" selection-start-column="2" selection-end-line="47" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/Java/jdk1.8.0_144/src.zip!/java/lang/Number.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1283,7 +1282,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33264887">
           <caret line="1264" column="45" selection-start-line="1264" selection-start-column="35" selection-end-line="1264" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1291,7 +1289,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.030303">
           <caret line="497" column="18" selection-start-line="497" selection-start-column="18" selection-end-line="500" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1299,7 +1296,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2483108">
           <caret line="74" column="11" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1307,7 +1303,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33277026">
           <caret line="954" column="0" selection-start-line="954" selection-start-column="0" selection-end-line="954" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1316,7 +1311,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="251" column="43" selection-start-line="251" selection-start-column="43" selection-end-line="251" selection-end-column="43" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#localDateTimeDemo#0;class#Java8Time#0" expanded="false" />
             <element signature="e#2396#2441#0" expanded="false" />
             <element signature="e#3303#3348#0" expanded="false" />
@@ -1337,21 +1331,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://E:/Java/jdk1.8.0_144/src.zip!/java/util/function/Supplier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6632997">
+          <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Java/jdk1.8.0_144/src.zip!/java/util/function/Predicate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="2" selection-start-line="48" selection-start-column="2" selection-end-line="48" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Java/jdk1.8.0_144/src.zip!/java/util/Optional.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="119" column="34" selection-start-line="119" selection-start-column="34" selection-end-line="119" selection-end-column="34" />
+          <folding>
+            <element signature="e#3486#3487#0" expanded="true" />
+            <element signature="e#3544#3545#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/personal/file/optional/OptionalDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27094474">
-          <caret line="114" column="15" selection-start-line="114" selection-start-column="14" selection-end-line="114" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.537037">
+          <caret line="124" column="13" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#ofDemo#0;class#OptionalDemo#0" expanded="false" />
             <element signature="e#700#746#0" expanded="false" />
             <element signature="method#ofNullableDemo#0;class#OptionalDemo#0" expanded="false" />
             <element signature="e#1106#1152#0" expanded="false" />
             <element signature="method#isPresentDemo#0;class#OptionalDemo#0" expanded="false" />
-            <element signature="e#1443#1489#0" expanded="false" />
+            <element signature="e#1454#1500#0" expanded="false" />
             <element signature="method#getDemo#0;class#OptionalDemo#0" expanded="false" />
-            <element signature="e#1957#2003#0" expanded="false" />
-            <element signature="e#2560#2606#0" expanded="false" />
-            <element signature="e#3183#3229#0" expanded="false" />
+            <element signature="e#1968#2014#0" expanded="false" />
+            <element signature="method#ifPresentDemo#0;class#OptionalDemo#0" expanded="false" />
+            <element signature="e#2764#2810#0" expanded="false" />
+            <element signature="e#3560#3606#0" expanded="false" />
+            <element signature="method#orElseGetDemo#0;class#OptionalDemo#0" expanded="false" />
+            <element signature="e#4409#4455#0" expanded="false" />
+            <element signature="method#orElseThrowDemo#0;class#OptionalDemo#0" expanded="false" />
+            <element signature="class#ValueAbsentException#0;class#OptionalDemo#0" expanded="false" />
+            <element signature="e#5109#5110#0" expanded="true" />
+            <element signature="e#5140#5141#0" expanded="true" />
+            <element signature="e#5190#5191#0" expanded="true" />
+            <element signature="e#5224#5225#0" expanded="true" />
+            <element signature="e#5279#5280#0" expanded="true" />
+            <element signature="e#5353#5354#0" expanded="true" />
+            <element signature="method#mapDemo#0;class#OptionalDemo#0" expanded="false" />
+            <element signature="method#flatMapDemo#0;class#OptionalDemo#0" expanded="false" />
+            <element signature="e#7708#7754#0" expanded="false" />
+            <element signature="method#filterDemo#0;class#OptionalDemo#0" expanded="false" />
+            <element signature="e#8654#8700#0" expanded="false" />
+            <marker date="1506414639985" expanded="false" signature="6880:6940" placeholder="..." />
           </folding>
         </state>
       </provider>
