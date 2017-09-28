@@ -160,8 +160,8 @@ public class OptionalDemo {
      * orElseThrow :
      * 如果有值则将其返回，否则抛出supplier接口创建的异常。
      *
-     * 在orElseGet方法中，我们传入一个Supplier接口。然而，在orElseThrow中我们可以传入一个
-     * lambda表达式或方法，如果值不存在来抛出异常。示例如下：
+     * 在orElseGet方法中，我们传入一个 Supplier 接口。然而，在orElseThrow中我们可以传入一个
+     * lambda 表达式或方法，如果值不存在来抛出异常。示例如下：
      */
     private void orElseThrowDemo(){
         try{
@@ -244,7 +244,7 @@ public class OptionalDemo {
     /**
      * flatMap :
      * 如果有值，为其执行mapping函数返回Optional类型返回值，否则返回Optional。flatMap
-     * 与map(Funtion)方法类似，区别在于flatMap中的mapper返回值必须是Optional。调用结束时
+     * 与map(Function)方法类似，区别在于flatMap中的mapper返回值必须是Optional。调用结束时
      * flatMap不会对结果用Optional封装。
      *
      * flatMap方法与map方法类似，区别在于mapping函数的返回值不同。map方法的mapping函数返回值
