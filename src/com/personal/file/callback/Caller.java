@@ -5,7 +5,7 @@ package com.personal.file.callback;
  */
 public class Caller {
 
-    //回调实现类，相当于手机卡或者电话线（赋值给他的是上层服务的实现类）
+    //回调接口，相当于手机卡或者电话线（赋值给他的是上层服务的实现类）
     private I119_CallBack callBack;
 
     //座机

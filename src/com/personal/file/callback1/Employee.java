@@ -8,6 +8,7 @@ package com.personal.file.callback1;
  */
 public class Employee {
 
+    //联系方式（持有接口）
     private CallBackInterface callBack = null;
 
     //告诉老板的联系方式，也就是注册

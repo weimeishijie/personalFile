@@ -28,7 +28,7 @@ public class Java8Time {
      * 当你不知道你所运行环境的时区时，你应该使用这些本地化的类。比如桌面JavaFX程序就是其中
      * 之一。甚至可以在处于不同时区的分布式系统使用这些类。
      *
-     * 现有的时间日期API中的类都不是线程安全的，开发者需要处理潜在的并发问题---这不是大部分开发者想要的
+     * 现有的时间日期API中的类都不是线程安全的，开发者需要处理潜在的并发问题 -- 这不是大部分开发者想要的
      *
      * 创建对象：
      * 在新的API中所有的核心类都可以由工厂方法很方便的构建。当我通过某些类自身的字段来构建它时
@@ -115,7 +115,7 @@ public class Java8Time {
 //    }
 
     /**
-     * 新的API提供的一个调节器的概念-用来封装通用的处理逻辑的一段代码。你对任意时间使用WithAdjuster来
+     * 新的API提供的一个调节器的概念 -- 用来封装通用的处理逻辑的一段代码。你对任意时间使用WithAdjuster来
      * 设置一个或者多个字段，或者可以使用PlusAdjuster来对字段进行增量或者减法操作。值类型也可以被当做
      * 调节器使用，用来更新字段的值。新的API定义了一些内置的调节器，但是如果你希望实现某些特定的业务
      * 逻辑，你也可以自己实现一个调节器 例如：
@@ -134,7 +134,8 @@ public class Java8Time {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(timePoint.with(LocalTime.now()));
+        timePoint = timePoint.with(LocalTime.now());
+        System.out.println(timePoint);
     }
 
 //    public static void main(String[] args) {
@@ -184,8 +185,8 @@ public class Java8Time {
         System.out.println(zoned);
         assert id.equals(ZoneId.from(zoned));
 
-//        ZoneOffset offset = ZoneOffset.of("+0:00");
-//        System.out.println(offset);
+        ZoneOffset offset = ZoneOffset.of("+0200");
+        System.out.println(offset);
     }
 
 //    public static void main(String[] args) {
@@ -212,7 +213,7 @@ public class Java8Time {
     /**
      * 2.OffsetDateTime是一个带有偏移量的时间日期类。如果你的服务器处于不同的时区，他可以存入
      * 数据库中也可以用来记录某个准确的时间点
-     * 3.OffsetTime是一个带有偏移量的时间类
+     * 3.OffsetTime 是一个带有偏移量的时间类
      */
     private static void offsetDateTime(){
         OffsetTime time = OffsetTime.now();
@@ -231,7 +232,7 @@ public class Java8Time {
 
     /**
      * Duration类
-     * Duration类也是用来描述一段时间的，他和Period类似，但是不同于Period的是，它表示的精度更细；
+     * Duration 类也是用来描述一段时间的，他和Period类似，但是不同于Period的是，它表示的精度更细；
      * 我们可以对其进行加减或者with函数操作，也可以使用它来修改一个时间日期对象的值
      *
      * JavaSE8的java.time包中新的时间日期API的功能可能性和安全性都大大提升了。新的API很好用，可以
@@ -248,7 +249,7 @@ public class Java8Time {
 //    }
 
     /**
-     * Chronology系列类
+     * Chronology 系列类
      * 由于我们需要支持无ISO日期年表 表示的环境，JavaSE8首次引入了Chronology类，这种环境下使用。
      * 他们也实现了核心的时间日期接口
      * Chronology ：

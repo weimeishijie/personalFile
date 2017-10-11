@@ -95,19 +95,46 @@ public class JavaClone {
      *
      * 深拷贝 ：
      * 深拷贝可以解决数据100%分离的问题。只需要对上面代码进行一些修改即可。
-     * 1.Children实现Cloneable接口
+     * 1.在Children类中实现Cloneable接口
+     * 2.重写clone方法，调用数据域的clone方法
      */
     static class CloneableImp1 implements Cloneable{
-        public int cout;
         public Children children;
 
         @Override
         protected Object clone() throws CloneNotSupportedException {
-            CloneableImp1 obj = (CloneableImp1) super.clone();
+            CloneableImp1 obj = (CloneableImp1)super.clone();
             obj.children = (Children)children.clone();
             return obj;
         }
     }
+
+    private static void cloneDemo3(){
+        CloneableImp1 cloneableImp1 = new CloneableImp1();
+        cloneableImp1.children = new Children("anny");
+        try {
+            CloneableImp1 cloneableImp11 = (CloneableImp1) cloneableImp1.clone();
+            cloneableImp11.children.name = "Bod";
+            System.out.println(cloneableImp1.children.name+" ; "+cloneableImp11.children.name);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+    }
+
+//    public static void main(String[] args) {
+//        cloneDemo3();
+//
+//        Children children = new Children();
+//        try {
+//            Children children1 = (Children) children.clone();
+//            System.out.println(children.getClass().equals(children1.getClass()));
+//            System.out.println(children1 != children);
+//        } catch (CloneNotSupportedException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+
 
     /**
      * 当我们再次修改imp2.children.name就不会影响到imp1.children.name的值了，因为imp1和imp2各自拥有
@@ -123,7 +150,7 @@ public class JavaClone {
      *
      * 应尽量避免clone ：
      * 1.通常情况下，实现接口是为了表明类可以为它的客户做些什么，而Cloneable仅仅是一个标记接口，而且
-     * 还改变了超类中的受保护的方法的行为，是接口的一种极端非典型的用法，不值得消防。
+     * 还改变了超类中的受保护的方法的行为，是接口的一种极端非典型的用法，不值得效仿。
      * 2.Clone方法约定及其脆弱clone方法的Javadoc描述有点暧昧模糊，如下为JavaSE8的约定
      * clone方法创建并返回该对象的一个拷贝。而拷贝的精确含义取决于该对象的类。一般的含义是，对于任何对象
      * x，表达式
@@ -143,11 +170,11 @@ public class JavaClone {
      * 2.只接受一个参数，参数类型为当前的类
      * 3.目的是生成一个与参与相同的新对象
      *
-     * 复制构造器相比clone方法的优势是简单，易于实现。一段使用了复制构造器的代码示例Car.java
+     * 复制构造器相比 clone 方法的优势是简单，易于实现。一段使用了复制构造器的代码示例 Car.java
      *
-     * 使用Serializable实现深拷贝
+     * 使用 Serializable 实现深拷贝
      *
-     * 其实，使用序列化也可以实现对象的深拷贝。简略代码DeepCopyExample.java
+     * 其实，使用序列化也可以实现对象的深拷贝。简略代码 DeepCopyExample.java
      */
 
     /**
@@ -164,9 +191,9 @@ public class JavaClone {
         }
     }
 
-    public static void main(String[] args) {
-        cloneDemo2();
-    }
+//    public static void main(String[] args) {
+//        cloneDemo2();
+//    }
 
 
 

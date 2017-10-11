@@ -3,10 +3,10 @@ package com.personal.file.clone;
 import java.io.*;
 
 /**
- * Created by mj on 2017/9/27.
+ *
  */
 public class DeepCopyExample implements Serializable {
-    //Children必须实现Serializable接口
+    // Children 必须实现 Serializable 接口
     public Children children;
 
     public DeepCopyExample copy(){
