@@ -3,6 +3,7 @@ package com.personal.file.springChain.optimizeSpringChain;
 import java.util.List;
 
 /**
+ * spring链式结构的设计
  * Created by mj on 2017/10/30.
  */
 public class Chain {

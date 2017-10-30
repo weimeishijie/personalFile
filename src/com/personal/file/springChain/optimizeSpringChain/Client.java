@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * spring链式结构设计
  * Created by mj on 2017/10/30.
  */
 public class Client {
