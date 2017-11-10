@@ -1,10 +1,9 @@
-package com.personal.file.AOPAndAgency1;
+package com.personal.file.proxy.AOPAndAgency;
 
-/**2.动态代理
+/**2.静态代理
  * 实现类代码.
  */
 public class UserManagerImpl implements UserManger {
-
     @Override
     public void addUser(String userId, String userName) {
         try {
@@ -25,5 +24,5 @@ public class UserManagerImpl implements UserManger {
  * 如果采用静态代理把打印日志的代码抽取到代理类中，
  * 通过代理类和业务逻辑类继承自同一个父类，
  * 客户端直接调用代理类完成需求，这样就解决了客户端与业务逻辑类的耦合。
- * 示例代码在类UserManagerImplProxy中：
+ * 示例代码在类 UserManagerImplProxy 中：
  */

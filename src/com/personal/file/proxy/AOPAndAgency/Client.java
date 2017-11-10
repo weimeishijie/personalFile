@@ -1,4 +1,4 @@
-package com.personal.file.AOPAndAgency;
+package com.personal.file.proxy.AOPAndAgency;
 
 /**4.静态代理
  * 客户端调用代码如下

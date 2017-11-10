@@ -64,7 +64,7 @@ public class StreamDemo {
      * IntStream、LongStream、DoubleStream
      * 当然我们也可以用：
      * String<Integer>、String<Long>、String<Double>
-     * 但是boxing和unboxing会很耗时，所以特别为这三种进本数值类型提供了对应的Stream
+     * 但是boxing和unboxing会很耗时，所以特别为这三种基本数值类型提供了对应的Stream
      */
     private static void IntStreamDemo(){
         IntStream.of(new int[]{1, 2, 3}).forEach(System.out::print);
@@ -102,13 +102,21 @@ public class StreamDemo {
         //2.list集合
         Stream stream1 = Stream.of("li","wen","ya");
         Object list2 = stream1.collect(Collectors.toCollection(ArrayList::new));
-        System.out.println(list2);
+        List<String> list = null;
+        if (list2 instanceof List){
+            list = (List<String>) list2;
+        }
+        System.out.println(list);
         //3.set集合
         String[] str = new String[]{"he","hui"};
         Stream stream2 = Arrays.stream(str);
         Object set = stream2.collect(Collectors.toSet());
         System.out.println(set);
     }
+
+//    public static void main(String[] args) {
+//        StreamConvertCollection();
+//    }
 
     /**
      * 流的数据结构转换
@@ -119,6 +127,10 @@ public class StreamDemo {
         String string = stream.collect(Collectors.joining()).toString();
         System.out.println(string);
     }
+
+//    public static void main(String[] args) {
+//        StreamConvertString();
+//    }
 
     /**
      * 流的操作：
@@ -156,12 +168,17 @@ public class StreamDemo {
         System.out.println(squareNums);
     }
 
+//    public static void main(String[] args) {
+////        mapConvertUpperCase();
+//        mapConvertSquare();
+//    }
+
     /**
      * 从上面例子可以看出，map生成的是个1:1映射，每个输入元素，都按照规则转换成为另外一个元素，
      * 还有一些场景，是一对多映射关系的，这时需要flatMap;
      *
-     * flatMap把input Stream中的层级结构扁平化，就是将最底层元素抽出来放到一起，
-     * 最终output的新Stream里面已经没有List了，都是直接的数字。
+     * flatMap 把 input Stream 中的层级结构扁平化，就是将最底层元素抽出来放到一起，
+     * 最终 output 的新 Stream 里面已经没有 List 了，都是直接的数字。
      */
     private static void flatMapConvert(){
         Stream<List<Integer>> inputStream = Stream.of(
@@ -181,9 +198,13 @@ public class StreamDemo {
         inputStream1.forEach(System.out::println);
     }
 
+//    public static void main(String[] args) {
+//        flatMapConvert();
+//    }
+
     /**
      * filter :
-     * filter对原始Stream进行某项测试，通过测试的元素被留下来生成一个新Stream
+     * filter 对原始 Stream 进行某项测试，通过测试的元素被留下来生成一个新Stream
      */
     private static void filterDemo(){
         Integer[] sixNums = {1, 2, 3, 4, 5, 6};
@@ -192,6 +213,10 @@ public class StreamDemo {
             System.out.print(in+" ");
         }
     }
+
+//    public static void main(String[] args) {
+//        filterDemo();
+//    }
 
     /**
      * forEach : terminal操作（只能有一个）执行完操作就将流消费掉了
@@ -569,35 +594,9 @@ public class StreamDemo {
     }
 
 
-    public static void main(String[] args) {
-//        StreamValues();
-//        StreamArrays();
-//        StreamCollections();
-//        IntStreamDemo();
-//        StreamConvertArray();
-//        StreamConvertCollection();
-//        StreamConvertString();
-//        mapConvertUpperCase();
-//        mapConvertSquare();
-//        flatMapConvert();
-//        filterDemo();
-//        forEachDemo();
-//        optionalDemo();
-//        reduceDemo();
-//        testLimitAndSkip();
-//        test1LimitAndSkip();
-//        sortedDemo();
-//        sortedDemo1();
-//        peekDemo();
-//        maxDemo();
-//        distinctDemo();
-//        matchDemo();
-//        streamGenerateDemo();
-//        supplierDemo();
-//        streamIterateDemo();
-//        groupingByDemo();
-        partitioningByDemo();
-    }
+//    public static void main(String[] args) {
+//        partitioningByDemo();
+//    }
 
     /**
      * 结束语：总之，Stream的特性可以归纳为

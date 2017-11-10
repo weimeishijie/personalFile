@@ -1,4 +1,4 @@
-package com.personal.file.AOPAndAgency;
+package com.personal.file.proxy.AOPAndAgency;
 
 /**3.静态代理
  * 从UserManagerImpl类的代码可以看出，注释里面的日志内容和业务逻辑毫无关系，

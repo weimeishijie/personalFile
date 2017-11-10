@@ -1,4 +1,4 @@
-package com.personal.file.AOPAndAgency1;
+package com.personal.file.proxy.AOPAndAgency1;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -14,15 +14,15 @@ import java.lang.reflect.Proxy;
  *
  * 继续演化上面举的例子，将静态代理改为动态代理，
  * 抽象类UserManager和目标类UserManagerImpl中的代码不变，
- * 将静态代理类UserManagerImplProxy删除，添加LoadHandler类，
- * 并让它实现InvocationHandler接口中的invoke方法，代码如下：
+ * 将静态代理类UserManagerImplProxy删除，添加 LoadHandler 类，
+ * 并让它实现 InvocationHandler 接口中的 invoke 方法，代码如下：
  */
 public class LogHandler implements InvocationHandler {
 
-    //保留一份targetObject目标类对象
+    // 保留一份 targetObject 目标类对象
     private Object targetObject;
 
-    //Proxy类动态创建一份目标代理类
+    // Proxy 类动态创建一份目标代理类
     public Object newProxyInstance(Object targetObject){
         this.targetObject = targetObject;
         return Proxy.newProxyInstance(targetObject.getClass().getClassLoader(),targetObject.getClass().getInterfaces(),this);
@@ -30,16 +30,16 @@ public class LogHandler implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("开始执行！");
 
         for(int i=0; i<args.length; i++){
-            System.out.println(args[i]);
+            System.out.println("Object[] args: "+args[i]);
         }
         Object ret = null;
-
         try {
             //调用目标方法
+            System.out.println("before");
             ret = method.invoke(targetObject, args);
+            System.out.println("after");
             System.out.println("执行成功！");
         } catch (Exception e){
             e.printStackTrace();

@@ -1,4 +1,4 @@
-package com.personal.file.AOPAndAgency1;
+package com.personal.file.proxy.AOPAndAgency1;
 
 
 /**4.动态代理
