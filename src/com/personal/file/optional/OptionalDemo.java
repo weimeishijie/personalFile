@@ -4,7 +4,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 /**
- * 新版本的Java，比如java 8引入了一个新的Optional类，Optional类的Javadoc描述如下：
+ * 新版本的Java，比如java 8引入了一个新的 Optional 类，Optional 类的 Javadoc 描述如下：
  */
 public class OptionalDemo {
 
@@ -62,11 +62,11 @@ public class OptionalDemo {
 
     /**
      * get :
-     * 如果Optional有值则将其返回，否则抛出NoSuchElementException.
+     * 如果 Optional 有值则将其返回，否则抛出NoSuchElementException.
      */
     private static void getDemo(){
         Optional empty = Optional.ofNullable(null);
-        //执行下面的代码回输出：No value present
+        //执行下面的代码会输出：No value present
         try {
             //在空的Optional实例上调用get()，抛出NoSuchElementException
             System.out.println(empty.get());
@@ -84,7 +84,7 @@ public class OptionalDemo {
      * 如果Optional实例有值则为其调用 consumer，否则不做处理
      *
      * 要理解ifPresent方法，首先需要了解Consumer类。简单地说，Consumer类包含一个抽象方法，
-     * 该抽象方法对传入的值进行处理，但没有返回值。Java8支持不用接口直接通过lambda表达式
+     * 该抽象方法对传入的值进行处理，但没有返回值。Java8 支持不用接口直接通过lambda表达式
      * 传入参数
      */
     private static void ifPresentDemo(){

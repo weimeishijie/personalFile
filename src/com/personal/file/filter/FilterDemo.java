@@ -1,11 +1,15 @@
 package com.personal.file.filter;
 
-import com.sun.net.httpserver.HttpExchange;
-
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponseWrapper;
 import java.io.IOException;
 
 /**
+ *
+ * 配合项目中的 web.xml 文件一起看
+ *
  * Filter: 简介：
  * Filter也称之为过滤器，他是Servlet技术中最实用的技术，Web开发人员通过Filter技术，
  * 对Web服务器管理的所有web资源：例如 Jsp，Servlet，静态图片文件或静态html文件等进行拦截，
@@ -32,8 +36,23 @@ import java.io.IOException;
  * 该方法，则web服务器就会调用web资源的service方法，即web资源就会被访问，否则web资源不会被访问
  *
  * Filter的生命周期:
+ *
+ *
  */
 public class FilterDemo implements Filter {
+
+    FilterConfig filterConfig;
+
+    public static boolean isContains(String container, String[] regx){
+        boolean result = false;
+
+        for(int i = 0; i < regx.length; i++){
+            if(container.indexOf(regx[i]) != -1){
+                return true;
+            }
+        }
+        return result;
+    }
 
     /**
      * 和我们编写的Servlet程序一样，Filter的创建和销毁由WEB服务器负责。 web 应用程序启动时，
@@ -43,24 +62,79 @@ public class FilterDemo implements Filter {
      * @param filterConfig
      *
      * 注释：filterConfig：
-     * 用户在配置filter时，可以使用为filter配置一些初始化参数，当web容器实例化Filter对象，
-     * 调用其init方法时，会把封装了filter初始化参数的filterConfig对象传递进来。
-     * 因此开发人员在编写filter时，通过filterConfig对象的方法，就可获得以下内容：
+     * 用户在配置 filter 时，可以使用为 filter 配置一些初始化参数，当web容器实例化 Filter 对象，
+     * 调用其 init 方法时，会把封装了filter 初始化参数的 filterConfig 对象传递进来。
+     * 因此开发人员在编写 filter 时，通过 filterConfig 对象的方法，就可获得以下内容：
      *
-     * String getFilterName();//得到filter的名称。
+     * String getFilterName();//得到 filter 的名称。
      * String getInitParameter(String name);//返回在部署描述中指定名称的初始化参数的值。如果不存在返回null.
      * Enumeration getInitParameterNames();//返回过滤器的所有初始化参数的名字的枚举集合。
      * public ServletContext getServletContext();//返回Servlet上下文对象的引用。
      */
     public void init(FilterConfig filterConfig) throws ServletException {
-
+        this.filterConfig = filterConfig;
     }
 
     /**
      * 这个方法完成实际的过滤操作。当客户请求访问与过滤器关联的URL的时候，
      * Servlet过滤器将先执行doFilter方法。FilterChain参数用于访问后续过滤器。
+     *
+     * HttpServletRequest介绍：
+     *
+     * HttpServletRequest对象代表客户端的请求，当客户端通过HTTP协议访问服务器时，
+     * HTTP请求头中的所有信息都封装在这个对象中，通过这个对象提供的方法，可以获得客户端请求的所有信息。
+     *
+     * 获得客户端信息：
+     * getRequestURL方法返回客户端发出请求时的完整URL。
+     * getRequestURI方法返回请求行中的资源名部分。
+     * getQueryString 方法返回请求行中的参数部分。
+     * getPathInfo方法返回请求URL中的额外路径信息。
+     * 额外路径信息是请求URL中的位于Servlet的路径之后和查询参数之前的内容，它以“/”开头。
+     * getRemoteAddr方法返回发出请求的客户机的IP地址。
+     * getRemoteHost方法返回发出请求的客户机的完整主机名。
+     * getRemotePort方法返回客户机所使用的网络端口号。
+     * getLocalAddr方法返回WEB服务器的IP地址。
+     * getLocalName方法返回WEB服务器的主机名
      */
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        HttpServletRequest httpServletRequest = (HttpServletRequest)servletRequest;
+        HttpServletResponseWrapper wrapper = new HttpServletResponseWrapper((HttpServletResponse) servletResponse);
+
+        String logonStrings = filterConfig.getInitParameter("loginStrings");// 登陆页面
+
+        String includeStrings = filterConfig.getInitParameter("includeStrings");// 过滤资源后缀参数
+
+        String redirectPath = httpServletRequest.getContextPath() + filterConfig.getInitParameter("redirectPath");
+
+        String disableTestFilter = filterConfig.getInitParameter("disabletestfilter");//过滤器是否有效
+
+        if(disableTestFilter.toUpperCase().equals("Y")){//过滤无效
+            filterChain.doFilter(servletRequest,servletResponse);
+            return;
+        }
+
+        String[] logonList = logonStrings.split(";");
+        String[] includeList = includeStrings.split(";");
+
+        if(!this.isContains(httpServletRequest.getRequestURI(), includeList)){ // 只对指定过滤参数后缀进行过滤
+            filterChain.doFilter(servletRequest,servletResponse);
+            return;
+        }
+
+        if(this.isContains(httpServletRequest.getRequestURI(),logonList)){ // 对登陆页面不进行过滤
+            filterChain.doFilter(servletRequest, servletResponse);
+            return;
+        }
+
+        String user = (String)httpServletRequest.getSession().getAttribute("useronly"); // 判断用户是否登陆
+        if(user == null){
+            wrapper.sendRedirect(redirectPath);
+            return;
+        } else {
+            filterChain.doFilter(servletRequest,servletResponse);
+            return;
+        }
+
 
     }
 
@@ -69,12 +143,12 @@ public class FilterDemo implements Filter {
      * 该方法在Filter的生命周期中仅执行一次。在这个方法中，可以释放过滤器使用的资源。
      */
     public void destroy() {
-
+        filterConfig = null;
     }
 }
 
 /**
- * Filter开发两步走:
+ * Filter 开发两步走:
  * 编写java类实现Filter接口，并实现其doFilter方法。
  * 在web.xml文件中对编写的filter类进行注册，并设置它所能拦截的资源。
  *

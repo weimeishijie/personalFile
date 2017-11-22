@@ -5,6 +5,7 @@ import java.util.*;
 
 /**
  * Created by mj on 2017/10/12.
+ * 注意：在格式化中：d代表整数，f代表小数，s代表字符串
  */
 public class Conversion {
     public static void main(String[] args) {
